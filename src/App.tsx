@@ -1,26 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { FC } from 'react';
+import Circle from './components/Circle';
+import styled from 'styled-components';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const MIN_TEMPERATURE = 10;
+const MAX_TEMPERATURE = 60;
+const CURRENT_TEMPERATURE = 45;
+
+const App: FC = () => {
+    return (
+        <WrapperComponent>
+            <Circle minTemperature={MIN_TEMPERATURE} maxTemperature={MAX_TEMPERATURE} currentTemperature={CURRENT_TEMPERATURE}/>
+        </WrapperComponent>
+    );
+};
 
 export default App;
+
+const WrapperComponent = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+`
